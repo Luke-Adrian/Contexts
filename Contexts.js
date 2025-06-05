@@ -54,10 +54,10 @@ let Runs = 1000
 
 for (let Run = 0; Run < Runs; Run++) for (let Time = 2; Time <= T; Time++) {
     let Measuring_Time = performance.now()
-    let A = Generate(S, E, Time, X => Initial_Numbers(Time).every(Tau => X[Tau][0] == X[Tau][1]))
+    Generate(S, E, Time, X => Initial_Numbers(Time).every(Tau => X[Tau][0] == X[Tau][1]))
     let Standard_Time = performance.now() - Measuring_Time
     Measuring_Time = performance.now()
-    let B = Generate_Determinable_Context(Start, Time, _ => Start)
+    Generate_Determinable_Context(Start, Time, _ => Start)
     let Determinable_Time = performance.now() - Measuring_Time
     Standard_Map[Time] = (Standard_Map[Time] ?? 0) + Standard_Time / Runs
     Determinable_Map[Time] = (Determinable_Map[Time] ?? 0) + Determinable_Time / Runs
